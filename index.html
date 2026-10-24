@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noeme Tuco | Executive Assistant</title>
+<meta name="description" content="Noeme Tuco is an Executive Assistant for entrepreneurs and small business owners. Inbox, calendar and file management plus simple automation, 40 hours a week.">
+<meta property="og:title" content="Noeme Tuco | Executive Assistant">
+<meta property="og:description" content="I take inbox, calendar and file busywork off busy business owners so they can focus on running their business.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="profile.jpg">
+<meta name="theme-color" content="#0e0e0f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23B24B2E'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='700' text-anchor='middle' fill='%23ffffff'%3ENT%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0e0f;
+  --surface:#161618;
+  --surface-2:#1d1d20;
+  --border:#2b2b30;
+  --text:#f3f0ea;
+  --muted:#b9b4ab;
+  --accent:#B24B2E;
+  --accent-hover:#9a3f25;
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:40px;--s6:48px;--s8:64px;--s10:80px;--s12:96px;
+  --radius:12px;
+  --shadow:0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{background:var(--bg);color:var(--text);font-family:'Lato',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.2;letter-spacing:-.01em}
+p{max-width:68ch}
+:focus-visible{outline:3px solid #f3f0ea;outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:1100px;margin:0 auto;padding:0 var(--s3)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--text);color:var(--bg);padding:var(--s1) var(--s2);border-radius:6px;z-index:100}
+.skip:focus{left:8px}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(14,14,15,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:600;text-decoration:none}
+.menu-btn{display:none;background:none;border:1px solid var(--border);color:var(--text);font:inherit;font-size:15px;padding:var(--s1) var(--s2);border-radius:8px;cursor:pointer}
+.nav ul{display:flex;gap:var(--s4);list-style:none}
+.nav ul a{text-decoration:none;color:var(--muted);font-size:16px;padding:var(--s1) 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.nav ul a:hover{color:var(--text);border-bottom-color:var(--accent)}
+
+/* Buttons */
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:16px;padding:14px 28px;border-radius:8px;border:1px solid transparent;transition:background .2s,border-color .2s,transform .2s;cursor:pointer}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost{border-color:#4a4a50;color:var(--text)}
+.btn-ghost:hover{border-color:var(--text)}
+
+/* Hero */
+.hero{padding:var(--s12) 0 var(--s10)}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:var(--s8);align-items:center}
+.hero h1{font-size:clamp(36px,5.4vw,60px);margin-bottom:var(--s3)}
+.hero .who{font-size:20px;color:var(--text);margin-bottom:var(--s2);font-weight:700}
+.hero .sub{color:var(--muted);font-size:18px;margin-bottom:var(--s5)}
+.cta-row{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.intro-link{margin-top:var(--s3);font-size:16px}
+.intro-link a{color:var(--muted);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:6px}
+.intro-link a:hover{color:var(--text)}
+.photo{position:relative;width:100%;max-width:360px;aspect-ratio:4/5;margin-left:auto;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);background:var(--surface)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo .fallback{display:none;position:absolute;inset:0;align-items:center;justify-content:center}
+.photo .fallback span{width:160px;height:160px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-size:56px;font-weight:600}
+.photo.no-img img{display:none}
+.photo.no-img .fallback{display:flex}
+
+/* Sections */
+section{padding:var(--s10) 0;border-top:1px solid var(--border)}
+.section-head{margin-bottom:var(--s6)}
+.section-head h2{font-size:clamp(28px,4vw,40px);margin-bottom:var(--s2)}
+.section-head h2::after{content:"";display:block;width:56px;height:3px;background:var(--accent);margin-top:var(--s2);border-radius:2px}
+.section-head p{color:var(--muted)}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--s4);box-shadow:var(--shadow);transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card h3{font-size:22px;margin-bottom:var(--s1)}
+.card p{color:var(--muted);font-size:16px}
+
+/* Tools */
+.tool-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+.tool-group{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--s3) var(--s4)}
+.tool-group h3{font-size:20px;margin-bottom:var(--s1)}
+.tool-group p{color:var(--muted);font-size:16px}
+
+/* Experience */
+.about{font-size:18px;margin-bottom:var(--s6);max-width:68ch}
+.about p+p{margin-top:var(--s2)}
+.timeline{border-left:2px solid var(--border);padding-left:var(--s4);margin-bottom:var(--s6)}
+.t-item{position:relative}
+.t-item::before{content:"";position:absolute;left:calc(-1 * var(--s4) - 7px);top:10px;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.t-item h3{font-size:22px}
+.t-meta{color:var(--muted);font-size:16px;margin-bottom:var(--s2)}
+.t-item ul{list-style:none;display:grid;gap:var(--s1)}
+.t-item li{position:relative;padding-left:var(--s3);color:var(--text);font-size:16px}
+.t-item li::before{content:"";position:absolute;left:0;top:12px;width:8px;height:2px;background:var(--accent)}
+.certs h3{font-size:22px;margin-bottom:var(--s2)}
+.certs ul{list-style:none;display:grid;gap:var(--s1)}
+.certs li{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:var(--s2) var(--s3);font-size:16px}
+
+/* How I work */
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s3)}
+.work-item{border-top:2px solid var(--accent);padding-top:var(--s2)}
+.work-item h3{font-size:20px;margin-bottom:var(--s1)}
+.work-item p{color:var(--muted);font-size:16px}
+
+/* Contact */
+.contact{text-align:left}
+.contact .big{display:inline-block;font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,5vw,44px);font-weight:600;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:3px;text-underline-offset:8px;word-break:break-all;margin-bottom:var(--s5)}
+.contact .big:hover{text-decoration-color:var(--text)}
+.links{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.links .btn{min-width:220px;text-align:center}
+
+footer{border-top:1px solid var(--border);padding:var(--s4) 0;color:var(--muted);font-size:15px}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .card,.btn{transition:none}
+  .card:hover{transform:none}
+}
+
+/* Tablet and phone */
+@media (max-width:900px){
+  .cards,.tool-groups{grid-template-columns:repeat(2,1fr)}
+  .hero-grid{grid-template-columns:1fr;gap:var(--s6)}
+  .photo{margin-left:0;max-width:300px;order:-1}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .menu-btn{display:block}
+  .nav ul{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--border);padding:var(--s1) var(--s3) var(--s2)}
+  .nav ul.open{display:flex}
+  .nav ul a{display:block;padding:var(--s2) 0;border-bottom:1px solid var(--border);font-size:17px}
+  .hero{padding:var(--s6) 0 var(--s8)}
+  section{padding:var(--s8) 0}
+  .cards,.tool-groups,.work-grid{grid-template-columns:1fr}
+  .btn{width:100%;text-align:center}
+  .links .btn{min-width:0}
+  .card{padding:var(--s3)}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">Noeme Tuco</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navList">Menu</button>
+    <nav aria-label="Main">
+      <ul id="navList">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#how-i-work">How I work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div id="top" class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Inbox, calendar and files handled, so you can run your business.</h1>
+        <p class="who">Noeme Tuco, Executive Assistant for entrepreneurs and small business owners</p>
+        <p class="sub">I manage your Gmail, Google Calendar and Drive, and set up simple automation for the tasks you repeat every day.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:noemetuco143@gmail.com">Email me</a>
+          <a class="btn btn-ghost" href="#services">See what I can do</a>
+        </div>
+        <p class="intro-link"><a href="https://share.descript.com/view/cjzMQcJHao0" target="_blank" rel="noopener">Watch my 60-second intro</a></p>
+      </div>
+      <div class="photo" id="photo">
+        <img src="profile.jpg" alt="Portrait of Noeme Tuco" width="360" height="450" onerror="document.getElementById('photo').classList.add('no-img')">
+        <div class="fallback" role="img" aria-label="Noeme Tuco"><span>NT</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="services" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What I can take off your plate</h2>
+        <p>Pick one task or hand me the whole routine. Here is where I can help.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <h3>Inbox management</h3>
+          <p>You open your inbox to only what needs you.</p>
+        </article>
+        <article class="card">
+          <h3>Calendar management</h3>
+          <p>Meetings booked, moved and confirmed without the back and forth.</p>
+        </article>
+        <article class="card">
+          <h3>Drive and file organisation</h3>
+          <p>You find any file in seconds.</p>
+        </article>
+        <article class="card">
+          <h3>Documents and slides</h3>
+          <p>Clean, on-brand files ready when you need them.</p>
+        </article>
+        <article class="card">
+          <h3>Simple automation</h3>
+          <p>Daily repetitive tasks run on their own, so you stop doing them by hand.</p>
+        </article>
+        <article class="card">
+          <h3>Research and coordination</h3>
+          <p>Online research, project coordination and event coordination done, so you get answers and plans, not homework.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Tools I use</h2>
+        <p>I am comfortable with new tools, so if you use something not listed here, I will pick it up.</p>
+      </div>
+      <div class="tool-groups">
+        <div class="tool-group">
+          <h3>Email and calendar</h3>
+          <p>Gmail, Google Calendar</p>
+        </div>
+        <div class="tool-group">
+          <h3>Documents and files</h3>
+          <p>Google Workspace, Google Sheets, Excel, Microsoft 365</p>
+        </div>
+        <div class="tool-group">
+          <h3>Planning and automation</h3>
+          <p>Notion, Zapier</p>
+        </div>
+        <div class="tool-group">
+          <h3>AI assistants</h3>
+          <p>ChatGPT, Claude, Gemini</p>
+        </div>
+        <div class="tool-group">
+          <h3>Design and video</h3>
+          <p>Canva, CapCut</p>
+        </div>
+        <div class="tool-group">
+          <h3>Meetings and messaging</h3>
+          <p>Zoom, Microsoft Teams, Google Meet, WhatsApp</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Experience</h2>
+      </div>
+      <div class="about">
+        <p>I am a Magna Cum Laude graduate moving into remote work as an executive assistant.</p>
+        <p>At university I researched and wrote a thesis, served as an officer of a student organisation, and planned school events. That taught me to research well, lead and stay organised. I learn fast, and I ask questions before I guess.</p>
+      </div>
+      <div class="timeline">
+        <div class="t-item">
+          <h3>Student, university</h3>
+          <p class="t-meta">2022 to 2026</p>
+          <ul>
+            <li>Researched and wrote a thesis</li>
+            <li>Ran a student organisation as an officer</li>
+            <li>Organised school events</li>
+            <li>Made posters and pubmats in Canva</li>
+            <li>Completed an internship (OJT) doing office work</li>
+            <li>Managed group projects in Google Docs, Sheets and Drive</li>
+          </ul>
+        </div>
+      </div>
+      <div class="certs">
+        <h3>Certifications and training</h3>
+        <ul>
+          <li>Notion Advanced Certification</li>
+          <li>Zapier certificates</li>
+          <li>Google inbox, calendar and Drive management</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-i-work" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How I work</h2>
+      </div>
+      <div class="work-grid">
+        <div class="work-item">
+          <h3>Hours</h3>
+          <p>Full time, 40 hours a week.</p>
+        </div>
+        <div class="work-item">
+          <h3>Based in</h3>
+          <p>Dumaguete City, Philippines.</p>
+        </div>
+        <div class="work-item">
+          <h3>Style</h3>
+          <p>I ask questions before I guess, so the work is done the way you want it.</p>
+        </div>
+        <div class="work-item">
+          <h3>Staying in touch</h3>
+          <p>Email, WhatsApp, Zoom, Microsoft Teams or Google Meet, whichever you already use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="wrap contact">
+      <div class="section-head">
+        <h2>Let's talk about what you need</h2>
+        <p>Send me a message and tell me what is eating your time.</p>
+      </div>
+      <a class="big" href="mailto:noemetuco143@gmail.com">noemetuco143@gmail.com</a>
+      <div class="links">
+        <a class="btn btn-primary" href="mailto:noemetuco143@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/noeme-tuco-697400439" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://www.onlinejobs.ph/jobseekers/info/5481802" target="_blank" rel="noopener">OnlineJobs.ph profile</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; <span id="year"></span> Noeme Tuco. All rights reserved.</div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn');
+  var list=document.getElementById('navList');
+  btn.addEventListener('click',function(){
+    var open=list.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  list.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){list.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  });
+  document.getElementById('year').textContent=new Date().getFullYear();
+
+  var els=document.querySelectorAll('.reveal');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)){
+    els.forEach(function(el){el.classList.add('in');});
+  }else{
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{threshold:.12});
+    els.forEach(function(el){io.observe(el);});
+  }
+})();
+</script>
+</body>
+</html>
